@@ -1,0 +1,40 @@
+.cats {
+    position: relative;
+    max-width: 55.25rem;
+    width: calc(75% - 1rem);
+}
+
+.catimage {
+    height: calc(100vh - 9.25rem);
+    padding: 1rem;
+    border: 1px solid #000;
+    overflow-y: auto;
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 1rem 2%;
+    }
+
+    &__load_more {
+        display: block;
+        height: 42px;
+        margin-block-start: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #009cda;
+        border: none;
+        border-radius: 0.25rem;
+        transition: background-color 240ms;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #0048a7;
+        }
+    }
+}

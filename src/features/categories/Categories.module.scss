@@ -1,0 +1,15 @@
+.categories {
+    position: sticky;
+    top: 1rem;
+    max-width: 18.75rem;
+    width: 25%;
+    border: 1px solid #000;
+    box-shadow: 0 0 .75rem .25rem rgba(0,0,0, .5);
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+        padding: 1rem;
+    }
+}
