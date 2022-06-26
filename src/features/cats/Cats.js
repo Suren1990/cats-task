@@ -1,8 +1,8 @@
 import styles from './Cats.module.scss';
-import { statusCats } from './catsSlice';
+import { loadMoreCats, statusCats } from './catsSlice';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { categoryId, fetchCats, selectCats } from '../../features/cats/catsSlice';
+import { categoryId, selectCats } from '../../features/cats/catsSlice';
 import CatItem from '../../components/CatItem/CatItem';
 import Loader from '../../components/Loader/Loader';
 
@@ -18,7 +18,7 @@ const Cats = () => {
 
     const loadMore = () => {
         setPage(page + 1);
-        dispatch(fetchCats({ page: page + 1, id })); 
+        dispatch(loadMoreCats({ page: page + 1, id })); 
     }
 
     return (

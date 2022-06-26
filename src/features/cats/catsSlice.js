@@ -15,6 +15,20 @@ export const fetchCats = createAsyncThunk(
   `${name}/fetchCategories`,
   async ({ page, id }) => {
     try {
+      console.log(`${CATS_API}?limit=10&page=${page}&category_ids=${id}`, "fetrchCats");
+      const response = await axios.get(`${CATS_API}?limit=10&page=${page}&category_ids=${id}`);
+      return response.data;
+    } catch (err) {
+      return err.message;
+    }
+  }
+);
+
+export const loadMoreCats = createAsyncThunk(
+  `${name}/loadMoreCats`,
+  async ({ page, id }) => {
+    try {
+      console.log(`${CATS_API}?limit=10&page=${page}&category_ids=${id}`, "LoadMoreCats");
       const response = await axios.get(`${CATS_API}?limit=10&page=${page}&category_ids=${id}`);
       return response.data;
     } catch (err) {
@@ -38,9 +52,19 @@ export const catsSlice = createSlice({
       })
       .addCase(fetchCats.fulfilled, (state, action) => {
         state.status = 'loaded';
-        state.cats = [...state.cats, ...action.payload];
+        state.cats = action.payload;
       })
       .addCase(fetchCats.rejected, (state) => {
+        state.status = 'error';
+      })
+      .addCase(loadMoreCats.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(loadMoreCats.fulfilled, (state, action) => {
+        state.status = 'loaded';
+        state.cats = [...state.cats, ...action.payload];
+      })
+      .addCase(loadMoreCats.rejected, (state) => {
         state.status = 'error';
       });
   },

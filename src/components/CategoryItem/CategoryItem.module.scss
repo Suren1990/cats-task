@@ -3,6 +3,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: #000;
+    background-color: #fff;
     text-transform: capitalize;
     transition: color 240ms;
     cursor: pointer;
@@ -11,5 +12,12 @@
     &_active {
         color: #009cda;
         text-decoration: underline;
+
+        @media screen and (max-width: 768px) {
+            position: sticky;
+            left: 0;
+            right: 0;
+            z-index: 9;
+        }  
     }
 }

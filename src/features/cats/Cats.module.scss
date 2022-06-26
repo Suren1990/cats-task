@@ -2,6 +2,11 @@
     position: relative;
     max-width: 55.25rem;
     width: calc(75% - 1rem);
+
+    @media screen and (max-width: 768px) {
+        max-width: 100%;
+        width: 100%
+    }    
 }
 
 .catimage {
@@ -37,4 +42,8 @@
             background-color: #0048a7;
         }
     }
+
+    @media screen and (max-width: 768px) {
+        height: initial;
+    }    
 }
